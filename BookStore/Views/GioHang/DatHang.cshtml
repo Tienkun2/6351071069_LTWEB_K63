@@ -1,0 +1,51 @@
+﻿@model BookStore.Models.DatHangViewModel
+
+@{
+    ViewBag.Title = "Đặt Hàng";
+}
+
+<h2>Thông tin đơn hàng</h2>
+<p><strong>Họ và tên:</strong> @Model.KHACHHANG.HoTen</p>
+<p><strong>Địa chỉ:</strong> @Model.KHACHHANG.DiachiKH</p>
+<p><strong>Số điện thoại:</strong> @Model.KHACHHANG.DienthoaiKH</p>
+
+@using (Html.BeginForm("DatHang", "GioHang", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="NgayDat">Ngày đặt:</label>
+        <input type="date" class="form-control" id="NgayDat" name="NgayDat" value="@Model.NgayDat.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="NgayGiao">Ngày giao:</label>
+        <input type="date" class="form-control" id="NgayGiao" name="NgayGiao" value="@Model.NgayGiao.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <h2>Thông tin giỏ hàng</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên sách</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.GioHang)
+            {
+                <tr>
+                    <td>@item.Tensach</td>
+                    <td>@String.Format("{0:n0}", item.Dongia)</td>
+                    <td>@item.Soluong</td>
+                    <td>@String.Format("{0:n0}", item.ThanhTien)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Tổng số lượng: @Model.TongSoLuong</h3>
+    <h3>Tổng tiền: @String.Format("{0:n0}", Model.TongTien)</h3>
+
+    <button type = "submit" class="btn btn-success">Xác nhận đặt hàng</button>
+}
