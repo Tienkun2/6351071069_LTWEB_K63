@@ -126,7 +126,7 @@ namespace BookStore.Controllers
             if (user == null)
             {
                 TempData["Message"] = "Vui lòng đăng nhập.";
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("NguoiDung", "DangNhap");
             }
 
             // Tạo DatHangViewModel để truyền dữ liệu vào view
@@ -160,7 +160,7 @@ namespace BookStore.Controllers
             if (user == null)
             {
                 TempData["Message"] = "Vui lòng đăng nhập.";
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("DangNhap", "NguoiDung");
             }
 
             // Kiểm tra và gán giá trị hợp lệ cho Ngaydat và Ngaygiao

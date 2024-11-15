@@ -81,3 +81,7 @@ D:\LapTrinhBackend\BookStore\BookStore\bin\EntityFramework.dll
 D:\LapTrinhBackend\BookStore\BookStore\bin\EntityFramework.xml
 D:\LapTrinhBackend\BookStore\BookStore\bin\EntityFramework.SqlServer.dll
 D:\LapTrinhBackend\BookStore\BookStore\bin\EntityFramework.SqlServer.xml
+D:\LapTrinhBackend\BookStore\BookStore\bin\PagedList.dll
+D:\LapTrinhBackend\BookStore\BookStore\bin\PagedList.Mvc.dll
+D:\LapTrinhBackend\BookStore\BookStore\bin\PagedList.xml
+D:\LapTrinhBackend\BookStore\BookStore\bin\PagedList.Mvc.xml

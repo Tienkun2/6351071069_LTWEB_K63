@@ -1,5 +1,6 @@
-﻿@model List<BookStore.Models.SACH>
-
+﻿@model IPagedList<BookStore.Models.SACH>
+@using PagedList.Mvc
+@using PagedList
 @{
     ViewBag.Title = "Home Page";
 }
@@ -10,7 +11,9 @@
         height: 100px;
         object-fit: cover; /* Giúp ảnh vừa khít trong khung mà không bị méo */
     }
+
 </style>
+
 
 <div id="templatemo_content_right">
     @foreach (var sach in Model)
@@ -31,4 +34,10 @@
             </div>
         </div>
     }
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
 </div> <!-- end of content right -->
+
+
+

@@ -5,18 +5,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Management;
 using System.Web.Mvc;
+using PagedList;
+using System.Web.UI;
 
 namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
         private QLBANSACHEntities db = new QLBANSACHEntities();
-        public ActionResult Index()
+
+
+        public ActionResult Index(int? page)
         {
-            var Sach = db.SACHes.ToList();
-            return View(Sach);
-            
+            int pageSize = 2;
+            int pageNumber = (page ?? 1); 
+
+            var sach = db.SACHes.OrderBy(s => s.Masach).ToPagedList(pageNumber, pageSize);
+
+            return View(sach);
         }
+
 
         public ActionResult Search()
         {
